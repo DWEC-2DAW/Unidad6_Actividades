@@ -1,0 +1,12 @@
+{
+  "name": "unidad6_actividades",
+  "version": "1.0.0",
+  "description": "Una breve descripción de tu proyecto",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ej1_unidad6.js"
+  },
+  "author": "Tu Nombre",
+  "license": "ISC",
+  "type": "module"
+}
