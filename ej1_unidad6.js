@@ -15,6 +15,7 @@ function peticionesSecuenciales() {
             console.log(result2);
             asyncRequest("resource3", function(result3) {
                 console.log(result3);
+                
                 console.log("¡Completado!");
             });
         });
