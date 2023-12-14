@@ -21,4 +21,4 @@ const DEFAULT_RESOURCES = {
     console.log("El módulo se importa bien");
 } 
  */
-export { asyncRequest}
+export { asyncRequest, DEFAULT_RESOURCES } 

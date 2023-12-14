@@ -12,3 +12,46 @@ The second resource
 resource3 The third resource
 ¡Completado! */
 
+import { asyncRequest, DEFAULT_RESOURCES } from './asyncRequest.js';   
+
+function peticionesParalelas() {
+  
+  let resultados = [];
+
+  const mostrarResultados = () => {
+    if (resultados[0] && resultados[1] && resultados[2]) {
+      console.log(resultados[0]); 
+      console.log(resultados[1]); 
+      console.log(resultados[2]);
+      console.log("¡Completado!");
+    }
+  };
+
+ /*  asyncRequest("resource1", (recurso1) => {
+    resultados[0] = recurso1; 
+    mostrarResultados();
+  });
+
+  asyncRequest("resource2", (recurso2) => {
+    resultados[1] = recurso2; 
+    mostrarResultados();
+  });
+
+  asyncRequest("resource3", (recurso3) => {
+    resultados[2] = recurso3;
+    mostrarResultados();
+  }); */
+
+/*   const nombresRecursos = ["resource1", "resource2", "resource3"]; */
+/* const nombresRecursos = Object.keys(DEFAULT_RESOURCES); */
+const nombresRecursos = Object.keys(DEFAULT_RESOURCES).filter(key => key.includes("resource"));
+
+  nombresRecursos.forEach((nombreRecurso, index) => {
+    asyncRequest(nombreRecurso, (resultado) => {
+      resultados[index] = resultado; 
+      mostrarResultados(); 
+    });
+  });
+}
+
+peticionesParalelas();
