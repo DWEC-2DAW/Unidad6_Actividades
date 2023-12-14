@@ -14,11 +14,23 @@ resource3 The third resource
 
 import { asyncRequest, DEFAULT_RESOURCES } from './asyncRequest.js';   
 
-function peticionesParalelas() {
-  
-  let resultados = [];
 
-  const mostrarResultados = () => {
+
+  function peticionesParalelas() {
+    let resultados = [];
+    let contador = 0; // Contador para rastrear cuántos recursos se han cargado.
+  
+    const mostrarResultados = () => {
+      contador++;
+      if (contador === resultados.length) {
+        resultados.forEach(resultado => console.log(resultado));
+        console.log("¡Completado!");
+      }
+    };
+
+
+
+ /*  const mostrarResultados = () => {
     if (resultados[0] && resultados[1] && resultados[2]) {
       console.log(resultados[0]); 
       console.log(resultados[1]); 
@@ -26,7 +38,7 @@ function peticionesParalelas() {
       console.log("¡Completado!");
     }
   };
-
+ */
  /*  asyncRequest("resource1", (recurso1) => {
     resultados[0] = recurso1; 
     mostrarResultados();
@@ -53,5 +65,6 @@ const nombresRecursos = Object.keys(DEFAULT_RESOURCES).filter(key => key.include
     });
   });
 }
+
 
 peticionesParalelas();
